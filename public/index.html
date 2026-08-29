@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IB Question Bank</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">IB Question Bank <span>&amp; Markschemes</span></a>
+    <nav class="site-nav">
+      <a href="/">Browse</a>
+      <a href="/admin.html">Add Question</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="panel">
+      <h3>Filters</h3>
+      <div class="field">
+        <label for="subject-select">Subject</label>
+        <select id="subject-select">
+          <option value="">All subjects</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Topic</label>
+        <div id="topic-list" class="topic-list">
+          <p style="color: var(--muted); font-size: 0.85rem;">Select a subject to see topics.</p>
+        </div>
+      </div>
+
+      <div class="row" style="display:flex; gap:10px;">
+        <div class="field" style="flex:1;">
+          <label for="year-select">Year</label>
+          <select id="year-select"><option value="">Any</option></select>
+        </div>
+        <div class="field" style="flex:1;">
+          <label for="paper-select">Paper</label>
+          <select id="paper-select"><option value="">Any</option></select>
+        </div>
+      </div>
+
+      <button class="clear-filters" id="clear-filters">Clear all filters</button>
+    </aside>
+
+    <main>
+      <div class="count-row">
+        <span id="result-count">Loading questions&hellip;</span>
+      </div>
+      <div id="question-grid" class="question-grid"></div>
+    </main>
+  </div>
+
+  <p class="footer-note">
+    Import your own past-paper questions and markschemes via the
+    <a href="/admin.html">Add Question</a> page.
+  </p>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Question</h2>
+        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div id="modal-meta" class="meta-row"></div>
+      <div id="modal-question-body"></div>
+
+      <div class="markscheme-section">
+        <button class="btn secondary" id="reveal-ms">Reveal Mark Scheme</button>
+        <div id="modal-ms-body" class="markscheme-body" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
